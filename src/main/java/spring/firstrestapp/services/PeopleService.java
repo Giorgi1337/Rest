@@ -1,12 +1,13 @@
-package services;
+package spring.firstrestapp.services;
 
-import models.Person;
+import spring.firstrestapp.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repositories.PeopleRepository;
-import util.PersonNotFoundException;
+import spring.firstrestapp.repositories.PeopleRepository;
+import spring.firstrestapp.util.PersonNotFoundException;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +29,14 @@ public class PeopleService {
     }
     @Transactional
     public void save(Person person) {
+        enrichPerson(person);
+
         peopleRepository.save(person);
+    }
+
+    private void enrichPerson(Person person) {
+        person.setCreatedAt(LocalDateTime.now());
+        person.setUpdatedAt(LocalDateTime.now());
+        person.setCreatedWho("ADMIN");
     }
 }

@@ -1,4 +1,4 @@
-package util;
+package spring.firstrestapp.util;
 
 public class PersonErrorResponse {
     private String message;

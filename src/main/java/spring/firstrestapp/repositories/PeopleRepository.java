@@ -1,6 +1,6 @@
-package repositories;
+package spring.firstrestapp.repositories;
 
-import models.Person;
+import spring.firstrestapp.models.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
